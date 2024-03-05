@@ -1,6 +1,6 @@
 # Create Task Execution Role
 resource "aws_iam_role" "main" {
-  name = "${var.tenant}_${var.name}_${data.aws_region.current.name}_execution_role_${var.environment}"
+  name = "${var.tenant}-${var.name}-${data.aws_region.current.name}-execution-role-${var.environment}"
 
   assume_role_policy = <<EOF
 {
@@ -19,7 +19,7 @@ resource "aws_iam_role" "main" {
 EOF
 
   tags = {
-    Name        = "${var.tenant}_${var.name}_${data.aws_region.current.name}_execution_role_${var.environment}"
+    Name        = "${var.tenant}-${var.name}-${data.aws_region.current.name}-execution-role-${var.environment}"
     Tenant      = var.tenant
     Module      = var.name
     Environment = var.environment
